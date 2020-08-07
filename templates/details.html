@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer feedback | View feedback</title>   
+    
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>    
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="{{ url_for('index') }}">Feedback form</a>--> 
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="{{ url_for('index') }}">Enter feedback</a></li>
+              <li class="active"><a href="{{ url_for('view') }}">View feedback</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+<h2>HTML Table</h2>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th> 
+    <th>Customer Message</th>             
+  </tr>
+  {% for view in results %}
+  <tr>
+    <td>{{ view.id }}</td>
+    <td>{{ view.firstname }} {{ view.lastname}}</td>
+    <td>{{ view.email }}</td>
+    <td>{{ view.phone }}</td>
+    <td>{{ view.customerdata }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+</body>
+</html>
